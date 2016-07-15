@@ -1,0 +1,32 @@
+<% if @product.has_auction? %>
+  <% if @product.auction.ended? %>
+    <%= render "auctions/status" %>
+  <% else %>
+    <%= form_for [ @product, @product.auction, Bid.new ] do |f| %>
+      <p class="message">
+        <strong>
+        <% if @product.auction.top_bid.present? %>
+          <% if @product.auction.top_bid.user_id == current_user.id %>
+            Current bid:
+          <% else %>
+            You were outbid:
+          <% end %>
+        <% else %>
+          Current bid:
+        <% end %>
+        <%= @product.auction.current_bid %>
+        </strong>
+      </p>
+      <p>
+        Ends at:
+        <%= l(@product.auction.ends_at, format: :long)%>
+      </p>
+      <p>
+        <%= f.text_field :value %>
+        <%= f.button class: "btn btn-primary" %>
+      </p>
+    <% end %>
+  <% end %>
+<% end %>
+
+
