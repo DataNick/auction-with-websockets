@@ -20,7 +20,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <p class="navbar-text">
-            You are signed in as #{current_user.email}.
+            You are signed in as <%= current_user.email %>. | |
             <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
           </p>
         <% else %>
