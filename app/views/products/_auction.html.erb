@@ -1,0 +1,12 @@
+<% unless @product.has_auction? %>
+  <h2>Put this product to auction</h2>
+  <%= form_for [ @product, Auction.new ] do |f| %>
+    <p>
+      <%= f.text_field :value %>
+    </p>
+    <p>
+
+      <%= f.button class: "btn btn-primary" %>
+    </p>
+  <% end %>
+<% end %>
