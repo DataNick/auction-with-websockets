@@ -7,8 +7,9 @@
 <p>
   <%= image_tag @product.image, height: 200 %>
 </p>
-
+<br/>
 <%= render 'auction' %>
+<%= render 'bid' %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
