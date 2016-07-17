@@ -29,8 +29,9 @@
   <% end %>
 <% end %>
 
-<script>
 
+<script>
+  <% if @product.has_auction? %>
     $(function() {
       var user_id = <%= current_user.id %>;
       var auction_id = <%= @product.auction.id %>;
@@ -42,7 +43,6 @@
         form
       );
     });
-
-  </script>
-
+  <% end %>
+</script>
 
